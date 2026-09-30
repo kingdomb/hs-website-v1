@@ -1,0 +1,4 @@
+const Container = ({ className = '', children }) => (
+  <div className={`mx-auto w-full max-w-6xl px-5 lg:px-8 ${className}`}>{children}</div>
+);
+export default Container;

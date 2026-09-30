@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 4.5rem; /* single source: Header height AND hero top padding */
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+  }
+  body {
+    @apply bg-navy-950 font-sans text-ivory-50 antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  img {
+    @apply max-w-full;
+  }
+}
+
+/* Scroll-reveal (see components/ui/Reveal.jsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-shown='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
